@@ -62,4 +62,7 @@ class Tour extends Model
     {
         return $this->belongsTo('App\Model\Type');
     }
+
+    public static function getToursByQuery($id)
+    { }
 }

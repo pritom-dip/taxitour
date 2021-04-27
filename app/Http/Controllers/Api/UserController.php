@@ -26,6 +26,16 @@ class UserController extends Controller
     {
         if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
             $user = Auth::user();
+
+            // But be careful if using these 2 lines in AuthServiceProvider boot() :
+            // Passport::tokensExpireIn(Carbon::now()->addDays(30));
+            // Passport::refreshTokensExpireIn(Carbon::now()->addDays(60));
+
+            // Passport::tokensExpireIn(Carbon::now()->addDays(30));
+            // Passport::refreshTokensExpireIn(Carbon::now()->addDays(60));
+            // $expiration = $objToken->token->expires_at->diffInSeconds(Carbon::now());
+            // return response()->json(["token_type" => "Bearer", "expires_in" => $expiration, "access_token" => $strToken]);
+
             $success['token'] =  $user->createToken('MyApp')->accessToken;
             return response()->json(['success' => $success], $this->successStatus);
         } else {
