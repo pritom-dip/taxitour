@@ -67,6 +67,9 @@ Route::prefix('/admin')->group(function () {
 
             //------------------------------- Pick up lcoation Crud -------------------------------
             Route::resource('pickuplocation',              'PickuplocationController');
+
+            //------------------------------- Airport Crud -------------------------------
+            Route::resource('airport',              'AirportController');
         });
 
         //------------------------------- Admin Crud -------------------------------

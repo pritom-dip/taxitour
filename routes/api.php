@@ -38,8 +38,8 @@ Route::get('/settings', function () {
 Route::namespace('Api')->group(function () {
     Route::get('tours',              'TourController@index');
     Route::get('tour/{id}',          'TourController@show');
-    Route::get('pickuplocation',        'PickuplocationController@index');
-
+    Route::get('pickuplocations',     'PickuplocationController@index');
+    Route::get('airports',            'AirportController@index');
 
 
     Route::post('taxibooking',        'TaxibookingController@store');
