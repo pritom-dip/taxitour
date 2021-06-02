@@ -64,6 +64,9 @@ Route::prefix('/admin')->group(function () {
 
             //------------------------------- Site Settings Crud -------------------------------
             Route::resource('settings',              'SettingsController');
+
+            //------------------------------- Pick up lcoation Crud -------------------------------
+            Route::resource('pickuplocation',              'PickuplocationController');
         });
 
         //------------------------------- Admin Crud -------------------------------

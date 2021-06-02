@@ -17,21 +17,7 @@ class TourController extends Controller
 
     public function index(Request $request)
     {
-        $query = Tour::with(
-            [
-                'category',
-                'rents',
-                'facilities',
-                'conditions',
-                'galleries',
-                'destination',
-                'activity',
-                'service',
-                'location',
-                'duration',
-                'type'
-            ]
-        )->latest();
+        $query = Tour::latest();
 
         if (!empty($request->field) && $request->field == 'type') {
             $query->where('tour_type', $request->quefieldry);
